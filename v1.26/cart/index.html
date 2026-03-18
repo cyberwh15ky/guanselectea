@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="zh-hk" dir="ltr">
+<head>
+<meta charset="utf-8">
+
+<link rel="icon" type="image/png" href="../assets/uejI7M_59a061d6d28c87cb.png">
+<link rel="apple-touch-icon" href="../assets/uejI7M_59a061d6d28c87cb.png">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#edc472">
+<title>購物車 | 觀選茶 GuanSelecTea</title>
+<link href="../assets/main.d84ac40c.css" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css" media="all">
+</head>
+<body>
+<div class="App">
+  <div class="flex flex-col justify-center items-center zoom-block">
+    <div class="flex items-center justify-center relative w-full h-[138px] duration-500" id="color_palette" style="background-color: rgb(237, 196, 114); height: 138px;">
+      <!-- 左上角 Instagram + 右上角 會員/購物車（與首頁一致） -->
+      <div class="absolute top-3 left-0 right-0 px-4 flex items-center justify-between z-10">
+        <a id="navInstagram" href="https://www.instagram.com/guanselectea?igsh=OTlqbjQzcm9jcXY0" target="_blank" rel="noopener"
+           class="flex items-center gap-2 px-3 py-2 rounded-full bg-white/25 hover:bg-white/35 backdrop-blur-md">
+          <img src="../assets/icon20.svg" class="w-[18px] h-[18px]" alt="Instagram">
+          <span class="text-sm font-semibold text-[#131D29]">Instagram</span>
+        </a>
+
+        <div class="flex items-center gap-2">
+          <a id="navCart" href="./index.html"
+             class="relative px-3 py-2 rounded-full bg-white/25 hover:bg-white/35 backdrop-blur-md text-sm font-semibold text-[#131D29] flex items-center gap-2">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#131D29" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="8" cy="21" r="1"></circle>
+              <circle cx="19" cy="21" r="1"></circle>
+              <path d="M2.05 2.05h2l2.6 12.45a2 2 0 0 0 2 1.6h9.7a2 2 0 0 0 2-1.6l1.4-7.45H6.1"></path>
+            </svg>
+            <span>購物車</span>
+            <span id="cartCount" class="absolute -top-2 -right-2 min-w-[20px] h-[20px] px-1 rounded-full text-xs flex items-center justify-center text-white"
+                  style="background-color: rgb(126, 192, 159);">0</span>
+          </a>
+
+          <a id="navMember" href="../auth/login.html"
+             class="px-3 py-2 rounded-full bg-white/25 hover:bg-white/35 backdrop-blur-md text-sm font-semibold text-[#131D29]">會員登入</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="flex flex-col items-center justify-center bg-white relative -mt-[10px] w-full max-w-[700px] px-[16px] rounded-t-[10px] shadow-[1px_6px_30px_rgba(0,31,14,0.05)]">
+      <a href="./index.html" class="mt-[-60px]">
+        <img src="../assets/uejI7M_59a061d6d28c87cb.png" class="w-[120px] border-[14px] mb-0 xs:mb-[15px] bg-white border-white rounded-full" alt="觀選茶 GuanSelecTea" style="margin-top: -60px;">
+      </a>
+
+      <div class="w-full text-center pb-[10px] xs:pb-[14px] border-b-[1px] border-black/[.05]">
+        <h1 class="text-xl xs:text-2xl mb-[5px] xs:mb-[9px] font-bold text-[#131D29]" style="font-family: &quot;GT Walsheim Pro&quot;;">購物車</h1>
+        <p class="text-sm xs:text-base text-[#767C83]" style="font-family: &quot;GT Walsheim Pro&quot;;">本機示範版（localStorage）</p>
+      </div>
+
+      <div class="mt-[18px] xs:mt-[25px] mb-[25px] w-full max-w-[520px]">
+        <div id="cartApp" class="w-full"></div>
+
+        <div class="mt-4 w-full border border-black/[.06] rounded-[14px] p-4 bg-[#F7F7F7] text-left">
+          <div class="flex items-center justify-between">
+            <div class="text-sm text-[#131D29] font-semibold">小計</div>
+            <div id="cartTotal" class="text-sm font-bold text-[#131D29]">$0</div>
+          </div>
+
+          <div class="flex gap-3 mt-4">
+            <button id="btnAddTest" class="flex-1 rounded-full py-3 font-semibold text-white hover:opacity-90" style="background-color: rgb(126, 192, 159);" type="button">加入測試商品</button>
+            <button id="btnClearCart" class="flex-1 rounded-full py-3 font-semibold border border-black/[.12] hover:bg-white" type="button">清空</button>
+          </div>
+
+          <div class="flex gap-3 mt-3">
+            <a class="flex-1 text-center rounded-full py-3 font-semibold border border-black/[.12] hover:bg-white" href="../index.html">回首頁</a>
+            <a class="flex-1 text-center rounded-full py-3 font-semibold border border-black/[.12] hover:bg-white" href="../auth/login.html">去登入</a>
+          </div>
+
+          <p class="text-xs text-[#767C83] mt-3 leading-relaxed">
+            目前只做「購物車 UI + 本機儲存」。要做真正結帳（Stripe/Shopify/自建後端）時，再把 cart.js 的儲存與結帳按鈕串接即可。
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="../assets/auth.js"></script>
+<script src="../assets/cart.js"></script>
+</body>
+</html>

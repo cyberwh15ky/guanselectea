@@ -1,0 +1,86 @@
+
+<!DOCTYPE html>
+
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8"/>
+<title>武夷山・岩茶・大紅袍 | GuanSelecTea</title>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<style>
+    body { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; margin: 0; background:#fafafa; color:#131D29;}
+    .hero { padding:60px 20px; text-align:center; background:#0f172a; color:#f8fafc;}
+    .hero img { max-width:280px; border-radius:24px; margin-bottom:24px;}
+    .content { max-width:720px; margin:40px auto; padding:0 20px; }
+    h1 { margin-bottom:12px;}
+    p { line-height:1.8;}
+    .back { margin-top:40px; display:inline-block; text-decoration:none; color:#2563eb;}
+  </style>
+
+<style>
+/* v14 tweaks */
+[data-original]{ text-decoration: line-through; }
+
+/* Quantity control: slightly narrower on all screens */
+.qty-controls{ gap: 8px !important; }
+.qty-controls [data-qty-dec], .qty-controls [data-qty-inc]{ width: 32px !important; height: 32px !important; }
+.qty-controls [data-qty]{ width: 52px !important; height: 32px !important; }
+
+@media (max-width: 640px){
+  /* Stack the product row into two layers */
+  table thead{ display:none; }
+  tr[data-product-row]{ display:block; padding: 6px 0; }
+  tr[data-product-row] td{ display:block; width:100%; padding: 10px 0 !important; }
+  tr[data-product-row] td[data-cell="item"]{ padding-bottom: 6px !important; }
+  tr[data-product-row] td[data-label]{ display:flex; align-items:center; justify-content:space-between; gap: 12px; }
+  tr[data-product-row] td[data-label]::before{
+    content: attr(data-label);
+    font-size: 12px;
+    color: #767C83;
+    flex: 0 0 auto;
+  }
+  /* Bigger hit targets on mobile */
+  .qty-controls [data-qty-dec], .qty-controls [data-qty-inc]{ width: 36px !important; height: 36px !important; }
+  .qty-controls [data-qty]{ width: 56px !important; height: 36px !important; }
+
+  /* Fix: prevent qty "+" being squeezed/overlapped; make "加入" full width */
+  tr[data-product-row] td[data-cell="qty"][data-label],
+  tr[data-product-row] td[data-cell="add"][data-label]{
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+  tr[data-product-row] td[data-cell="qty"][data-label]::before,
+  tr[data-product-row] td[data-cell="add"][data-label]::before{
+    margin-bottom: 6px;
+  }
+  tr[data-product-row] td[data-cell="qty"] .qty-controls{
+    width: 100%;
+    justify-content: flex-start;
+  }
+  tr[data-product-row] td[data-cell="add"] button[data-addcart]{
+    width: 100%;
+  }
+}
+</style>
+</head>
+<body>
+<section class="hero">
+<img alt="武夷山・岩茶・大紅袍" src="./bai_rui_xiang.png"/>
+<h1>武夷山・岩茶・大紅袍</h1>
+<p>Wuyi Mountain Rock Tea · Da Hong Pao</p>
+</section>
+<section class="content">
+<p>
+		武夷山大紅袍是產自福建武夷山的頂級烏龍茶（青茶），以其獨特的「岩韻」和蘭花香氣聞名，素有「茶王」之稱。
+		其特點是條索緊結、色澤綠褐，沖泡後湯色橙黃明亮，滋味醇厚回甘。 大紅袍屬於閩北烏龍，與鐵觀音有顯著區別。 
+			產地：中國福建省武夷山市。
+			特色：岩骨花香、蘭花香氣、耐沖泡、具備「綠葉紅鑲邊」特徵。
+			分類：武夷岩茶的一種。
+			品種：源自母樹大紅袍（僅存數株），現市售多為無性繁殖的純種大紅袍或拼配大紅袍。
+			價值：因稀缺性和歷史故事，曾被譽為最貴茶葉之一。 
+		大紅袍分為「正岩」（岩石區）和「半岩」。追求極致「岩韻」可選擇產自武夷山核心正岩區的產品。 
+    </p>
+<a class="back" href="../index.html">← 返回商品列表</a>
+</section>
+</body>
+</html>

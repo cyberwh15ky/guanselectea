@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="zh-hk" dir="ltr">
+<head>
+<meta charset="utf-8">
+
+<link <link rel="icon" type="image/png" href="../assets/uejI7M_59a061d6d28c87cb.png">
+<link <link rel="apple-touch-icon" href="../assets/uejI7M_59a061d6d28c87cb.png">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#edc472">
+<title>註冊 | 觀選茶 GuanSelecTea</title>
+<link href="../assets/main.d84ac40c.css" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css" media="all">
+
+<style>
+/* password-strength */
+#togglePassword{ background: transparent; border: 0; padding: 6px 8px; border-radius: 10px; }
+#togglePassword:focus{ outline: 2px solid rgba(19,29,41,.25); outline-offset: 2px; }
+
+/* password strength initial hidden */
+#strengthWrap { display:none; }
+</style>
+
+
+
+<style>
+/* strength-fix */
+#strengthWrap { margin-top: 12px; }
+#pwdStrengthBar { transition: width .2s ease, background-color .2s ease; }
+</style>
+
+</head>
+<body>
+<div class="App">
+  <div class="flex flex-col justify-center items-center zoom-block">
+    <div class="flex items-center justify-center relative w-full h-[138px] duration-500" id="color_palette" style="background-color: rgb(237, 196, 114); height: 138px;">      <div class="absolute top-3 left-0 right-0 px-4 flex items-center justify-between z-10">
+        <a id="navInstagram" href="https://www.instagram.com/guanselectea?igsh=OTlqbjQzcm9jcXY0" target="_blank" rel="noopener"
+           class="flex items-center gap-2 px-3 py-2 rounded-full bg-white/25 hover:bg-white/35 backdrop-blur-md">
+          <img src="../assets/icon20.svg" class="w-[18px] h-[18px]" alt="Instagram">
+          <span class="text-sm font-semibold text-[#131D29]">Instagram</span>
+        </a>
+
+        <div class="flex items-center gap-2">
+          <a id="navCart" href="../cart/index.html"
+             class="relative px-3 py-2 rounded-full bg-white/25 hover:bg-white/35 backdrop-blur-md text-sm font-semibold text-[#131D29] flex items-center gap-2">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#131D29" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="8" cy="21" r="1"></circle>
+              <circle cx="19" cy="21" r="1"></circle>
+              <path d="M2.05 2.05h2l2.6 12.45a2 2 0 0 0 2 1.6h9.7a2 2 0 0 0 2-1.6l1.4-7.45H6.1"></path>
+            </svg>
+            <span>購物車</span>
+            <span id="cartCount" class="absolute -top-2 -right-2 min-w-[20px] h-[20px] px-1 rounded-full text-xs flex items-center justify-center text-white"
+                  style="background-color: rgb(126, 192, 159);">0</span>
+          </a>
+
+          <a id="navMember" href="./login.html"
+             class="px-3 py-2 rounded-full bg-white/25 hover:bg-white/35 backdrop-blur-md text-sm font-semibold text-[#131D29]">會員登入</a>
+        </div>
+      </div>
+    </div>
+    <div class="flex flex-col items-center justify-center bg-white relative -mt-[10px] w-full max-w-[700px] px-[16px] rounded-t-[10px] shadow-[1px_6px_30px_rgba(0,31,14,0.05)]">
+      <a href="../index.html" class="mt-[-60px]">
+        <img src="../assets/uejI7M_59a061d6d28c87cb.png" class="w-[120px] border-[14px] mb-0 xs:mb-[15px] bg-white border-white rounded-full" alt="觀選茶 GuanSelecTea" style="margin-top: -60px;">
+      </a>
+      <div class="w-full text-center pb-[10px] xs:pb-[14px] border-b-[1px] border-black/[.05]">
+        <h1 class="text-xl xs:text-2xl mb-[5px] xs:mb-[9px] font-bold text-[#131D29]" style="font-family: &quot;GT Walsheim Pro&quot;;">註冊</h1>
+        <p class="text-sm xs:text-base text-[#767C83]" style="font-family: &quot;GT Walsheim Pro&quot;;">會員系統（示範版）</p>
+      </div>
+      <div class="mt-[18px] xs:mt-[25px] mb-[25px] w-full max-w-[520px]">
+        
+<form novalidate id="form" class="w-full flex flex-col gap-3">
+  <div class="grid grid-cols-2 gap-3">
+    <div>
+      <label class="text-sm text-[#131D29] font-semibold">First name</label>
+      <input id="firstName" class="w-full mt-1 px-4 py-3 rounded-full border border-black/[.08] outline-none" required>
+    </div>
+    <div>
+      <label class="text-sm text-[#131D29] font-semibold">Last name</label>
+      <input id="lastName" class="w-full mt-1 px-4 py-3 rounded-full border border-black/[.08] outline-none" required>
+    </div>
+  </div>
+  <div>
+    <label class="text-sm text-[#131D29] font-semibold">Email</label>
+    <input id="email" type="email" class="w-full mt-1 px-4 py-3 rounded-full border border-black/[.08] outline-none" required>
+  </div>
+  <div>
+    <label class="text-sm text-[#131D29] font-semibold">Password</label>
+    
+<div class="relative w-full">
+  <input id="password" type="password" class="w-full mt-1 px-4 py-3 rounded-full border border-black/[.08] outline-none" required>
+  <button type="button" id="togglePassword"
+    aria-label="顯示密碼"
+    class="absolute right-4 top-1/2 -translate-y-1/2 text-sm font-semibold opacity-70 hover:opacity-100">
+    👁
+  </button>
+</div>
+<div id="strengthWrap" style="display:none;"><div class="mt-3 flex items-center gap-3">
+  <div class="h-2 w-full rounded-full bg-black/10 overflow-hidden">
+    <div id="pwdStrengthBar" class="h-full w-0 rounded-full" style="background-color: transparent;"></div>
+  </div>
+  <div id="pwdStrengthText" class="min-w-[64px] text-sm font-semibold" style="color: rgb(205, 92, 92);"></div>
+</div></div>
+
+  </div>
+  <div id="msg" class="min-h-[20px]"></div>
+  <button class="w-full rounded-full py-3 font-semibold text-white hover:opacity-90" style="background-color: rgb(126, 192, 159);" type="submit">註冊</button>
+  <div class="text-sm mt-2 text-center">
+    <a class="hover:underline" href="./login.html" style="color: rgb(126, 192, 159);">我已有帳號 → 去登入</a>
+  </div>
+</form>
+
+
+
+<script>
+(function(){
+  const form = document.querySelector("form");
+  if(!form) return;
+
+  const pwd = form.querySelector('input[type="password"]');
+  if(!pwd) return;
+
+  const msg = "密碼需至少 8 位，並包含：大寫字母、小寫字母、數字與符號";
+  const rule = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z0-9]).{8,}$/;
+
+  function validate(){
+    const ok = rule.test(pwd.value || "");
+    pwd.setCustomValidity(ok ? "" : msg);
+    return ok;
+  }
+
+  // Validate as user types (shows red text you already have, but also keeps tooltip message consistent)
+  pwd.addEventListener("input", function(){
+    validate();
+    // don't spam tooltip; just clear/set validity
+  });
+
+  form.addEventListener("submit", function(e){
+    if(!validate()){
+      e.preventDefault();
+      // Show browser tooltip (now in Chinese) at the password field
+      pwd.reportValidity();
+
+      // Also show the red inline message (same Chinese)
+      let el = document.getElementById("passwordRuleError");
+      if(!el){
+        el = document.createElement("div");
+        el.id = "passwordRuleError";
+        el.style.color = "#c0392b";
+        el.style.fontSize = "14px";
+        el.style.marginTop = "6px";
+        pwd.parentNode.appendChild(el);
+      }
+      el.textContent = msg;
+    }else{
+      // remove inline error if any
+      const el = document.getElementById("passwordRuleError");
+      if(el) el.textContent = "";
+    }
+  });
+})();
+</script>
+
+
+<script>
+(function(){
+  const form = document.querySelector("form");
+  if(!form) return;
+
+  const pwd = document.querySelector('#password') || form.querySelector('input[type="password"]');
+  if(!pwd) return;
+
+  const toggleBtn = document.getElementById("togglePassword");
+  const strengthBar = document.getElementById("pwdStrengthBar");
+  const strengthWrap = document.getElementById("strengthWrap");
+  const strengthText = document.getElementById("pwdStrengthText");
+
+  const msg = "密碼需至少 8 位，並包含：大寫字母、小寫字母、數字與符號";
+  const rule = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z0-9]).{8,}$/;
+
+  function scorePassword(p){
+    let score = 0;
+    if(!p) return 0;
+    // length
+    if(p.length >= 8) score += 1;
+    if(p.length >= 12) score += 1;
+    // diversity
+    if(/[a-z]/.test(p)) score += 1;
+    if(/[A-Z]/.test(p)) score += 1;
+    if(/\d/.test(p)) score += 1;
+    if(/[^A-Za-z0-9]/.test(p)) score += 1;
+    // cap 0-6
+    return Math.min(score, 6);
+  }
+
+  function setStrengthUI(p){
+  if(!strengthBar || !strengthText || !strengthWrap) return;
+  const val = (p || "");
+  if(val.length === 0){
+    strengthWrap.style.display = "none";
+    strengthBar.style.width = "0%";
+    strengthBar.style.backgroundColor = "transparent";
+    strengthText.textContent = "";
+    strengthText.style.color = "transparent";
+    return;
+  }
+
+  strengthWrap.style.display = "block";
+
+  const s = scorePassword(val);
+  let label = "弱";
+  let color = "rgb(205, 92, 92)";
+  let width = "25%";
+
+  if(s >= 4){
+    label = "中";
+    color = "rgb(218, 165, 32)";
+    width = "60%";
+  }
+  if(s >= 6){
+    label = "強";
+    color = "rgb(46, 139, 87)";
+    width = "100%";
+  }
+
+  strengthBar.style.width = width;
+  strengthBar.style.backgroundColor = color;
+  strengthText.textContent = label;
+  strengthText.style.color = color;
+}
+  strengthWrap.style.display = "block";
+  const s = scorePassword(val);
+  let label = "弱";
+  let color = "rgb(205, 92, 92)";
+  let width = "25%";
+  if(s >= 4){ label = "中"; color = "rgb(218,165,32)"; width="60%"; }
+  if(s >= 6){ label = "強"; color = "rgb(46,139,87)"; width="100%"; }
+  strengthBar.style.width = width;
+  strengthBar.style.backgroundColor = color;
+  strengthText.textContent = label;
+  strengthText.style.color = color;
+}
+    const s = scorePassword(val);
+    // Weak / Medium / Strong thresholds
+    let label = "弱";
+    let color = "rgb(205, 92, 92)"; // red-ish
+    let width = "25%";
+    if(s >= 4){
+      label = "中";
+      color = "rgb(218, 165, 32)"; // gold
+      width = "60%";
+    }
+    if(s >= 6){
+      label = "強";
+      color = "rgb(46, 139, 87)"; // green
+      width = "100%";
+    }
+    strengthBar.style.width = width;
+    strengthBar.style.backgroundColor = color;
+    strengthText.textContent = label;
+    strengthText.style.color = color;
+  }
+    if(s >= 6){
+      label = "強";
+      color = "rgb(46, 139, 87)"; // seagreen
+      width = "100%";
+    }
+    strengthBar.style.width = width;
+    strengthBar.style.backgroundColor = color;
+    strengthText.textContent = label;
+    strengthText.style.color = color;
+  }
+
+  function validate(){
+    const ok = rule.test(pwd.value || "");
+    pwd.setCustomValidity(ok ? "" : msg);
+    return ok;
+  }
+
+  // Toggle show/hide
+  if(toggleBtn){
+    toggleBtn.addEventListener("click", function(){
+      const isPwd = pwd.type === "password";
+      pwd.type = isPwd ? "text" : "password";
+      toggleBtn.textContent = isPwd ? "🙈" : "👁";
+      toggleBtn.setAttribute("aria-label", isPwd ? "隱藏密碼" : "顯示密碼");
+    });
+  }
+
+  pwd.addEventListener("input", function(){
+    setStrengthUI(pwd.value);
+    validate(); // keep validity message consistent
+  });
+
+  // init
+  setStrengthUI(pwd.value);
+
+  form.addEventListener("submit", function(e){
+    if(!validate()){
+      e.preventDefault();
+      pwd.reportValidity();
+
+      let el = document.getElementById("passwordRuleError");
+      if(!el){
+        el = document.createElement("div");
+        el.id = "passwordRuleError";
+        el.style.color = "#c0392b";
+        el.style.fontSize = "14px";
+        el.style.marginTop = "6px";
+        // append near strength UI if present
+        const after = document.getElementById("pwdStrengthText");
+        if(after && after.parentNode){
+          after.parentNode.parentNode.appendChild(el);
+        }else{
+          pwd.parentNode.appendChild(el);
+        }
+      }
+      el.textContent = msg;
+    }else{
+      const el = document.getElementById("passwordRuleError");
+      if(el) el.textContent = "";
+    }
+  });
+})();
+</script>
+
+</body>
+</html>

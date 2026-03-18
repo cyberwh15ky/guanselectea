@@ -1,0 +1,536 @@
+/* 基礎設定 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Noto Sans TC', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* 頁頭 */
+.header {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 40px 0;
+    text-align: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.header h1 {
+    color: #667eea;
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    color: #666;
+    font-size: 1.2rem;
+}
+
+/* 導航 */
+.nav {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 15px 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.nav a {
+    color: #667eea;
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.nav a:hover {
+    color: #764ba2;
+}
+
+/* 主內容 */
+.main {
+    background: #f8f9fa;
+    padding: 40px 0;
+}
+
+.section {
+    background: white;
+    margin: 20px 0;
+    padding: 40px 0;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.section h2 {
+    color: #667eea;
+    margin-bottom: 30px;
+    font-size: 2rem;
+    text-align: center;
+}
+
+/* 行程概覽 */
+.overview-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.overview-card {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.overview-card h3 {
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+}
+
+/* 時間軸 */
+.timeline {
+    position: relative;
+    padding: 20px 0;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 4px;
+    height: 100%;
+    background: #667eea;
+}
+
+.timeline-item {
+    display: flex;
+    margin: 30px 0;
+    position: relative;
+}
+
+.timeline-item:nth-child(odd) {
+    flex-direction: row;
+}
+
+.timeline-item:nth-child(even) {
+    flex-direction: row-reverse;
+}
+
+.time {
+    background: #667eea;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-weight: bold;
+    min-width: 150px;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+}
+
+.content {
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 10px;
+    margin: 0 30px;
+    flex: 1;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.content h3 {
+    color: #667eea;
+    margin-bottom: 10px;
+}
+
+.tag {
+    display: inline-block;
+    padding: 5px 15px;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    margin-top: 10px;
+    color: white;
+}
+
+.tag.transport { background: #3498db; }
+.tag.food { background: #27ae60; }
+.tag.temple { background: #9b59b6; }
+.tag.hotel { background: #e67e22; }
+.tag.attraction { background: #e74c3c; }
+.tag.walk { background: #1abc9c; }
+
+/* 交通表格 */
+.transport-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 20px;
+}
+
+.transport-card {
+    background: #f8f9fa;
+    padding: 25px;
+    border-radius: 10px;
+    border-left: 5px solid #667eea;
+}
+
+.transport-card h3 {
+    color: #667eea;
+    margin-bottom: 20px;
+}
+
+.transport-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.transport-table th,
+.transport-table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.transport-table th {
+    background: #667eea;
+    color: white;
+}
+
+.transport-table tr:hover {
+    background: #f1f1f1;
+}
+
+.transport-list {
+    list-style: none;
+}
+
+.transport-list li {
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+}
+
+/* 地圖 */
+.map-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin: 30px 0;
+}
+
+.map-placeholder {
+    background: #f8f9fa;
+    padding: 40px;
+    border-radius: 10px;
+    text-align: center;
+    border: 2px dashed #667eea;
+}
+
+.map-placeholder h3 {
+    color: #667eea;
+    margin-bottom: 20px;
+}
+
+.map-placeholder ul {
+    text-align: left;
+    margin: 20px 0;
+    padding-left: 20px;
+}
+
+.map-placeholder li {
+    margin: 10px 0;
+}
+
+.map-note {
+    color: #e74c3c;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+.route-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.route-table th,
+.route-table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.route-table th {
+    background: #667eea;
+    color: white;
+}
+
+.interactive-map {
+    background: #f8f9fa;
+    padding: 30px;
+    border-radius: 10px;
+    margin-top: 30px;
+}
+
+.map-links {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.map-btn {
+    background: #667eea;
+    color: white;
+    padding: 12px 25px;
+    border-radius: 25px;
+    text-decoration: none;
+    transition: background 0.3s;
+}
+
+.map-btn:hover {
+    background: #764ba2;
+}
+
+/* 預算 */
+.budget-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    margin: 30px 0;
+}
+
+.budget-card {
+    background: #f8f9fa;
+    padding: 25px;
+    border-radius: 10px;
+    border-top: 5px solid #667eea;
+}
+
+.budget-card h3 {
+    color: #667eea;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.budget-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.budget-table td {
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.budget-table tr.total {
+    font-weight: bold;
+    background: #667eea;
+    color: white;
+}
+
+.budget-table tr.total td {
+    border: none;
+}
+
+.budget-summary {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 30px;
+    border-radius: 10px;
+    margin-top: 30px;
+}
+
+.budget-summary h3 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.summary-table {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    border-collapse: collapse;
+}
+
+.summary-table td {
+    padding: 15px;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+}
+
+.summary-table tr.grand-total {
+    font-size: 1.3rem;
+    font-weight: bold;
+    background: rgba(255,255,255,0.2);
+}
+
+.budget-note {
+    text-align: center;
+    margin-top: 20px;
+    opacity: 0.8;
+}
+
+/* 住宿 */
+.hotel-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 20px;
+}
+
+.hotel-card {
+    background: #f8f9fa;
+    padding: 30px;
+    border-radius: 10px;
+    border-left: 5px solid #667eea;
+}
+
+.hotel-card h3 {
+    color: #667eea;
+    margin-bottom: 20px;
+}
+
+.hotel-card ul {
+    list-style: none;
+    margin: 20px 0;
+}
+
+.hotel-card li {
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.hotel-tip {
+    background: #fff3cd;
+    padding: 15px;
+    border-radius: 5px;
+    margin-top: 20px;
+    border-left: 4px solid #ffc107;
+}
+
+/* 注意事項 */
+.tips-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.tip-card {
+    background: #f8f9fa;
+    padding: 25px;
+    border-radius: 10px;
+    border-top: 5px solid #e74c3c;
+}
+
+.tip-card h3 {
+    color: #e74c3c;
+    margin-bottom: 15px;
+}
+
+/* 頁尾 */
+.footer {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 30px 0;
+    text-align: center;
+    margin-top: 40px;
+}
+
+.footer p {
+    margin: 10px 0;
+    color: #666;
+}
+
+.copyright {
+    font-size: 0.9rem;
+    color: #999;
+    margin-top: 20px;
+}
+
+/* 響應式設計 */
+@media (max-width: 768px) {
+    .header h1 {
+        font-size: 1.8rem;
+    }
+    
+    .nav a {
+        display: block;
+        margin: 10px 0;
+        text-align: center;
+    }
+    
+    .timeline::before {
+        left: 20px;
+    }
+    
+    .timeline-item {
+        flex-direction: row !important;
+        padding-left: 50px;
+    }
+    
+    .time {
+        position: absolute;
+        left: 0;
+        min-width: 100px;
+    }
+    
+    .content {
+        margin: 0 0 0 20px;
+    }
+    
+    .map-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .transport-grid,
+    .budget-grid,
+    .hotel-grid,
+    .tips-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* 動畫效果 */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.section {
+    animation: fadeIn 0.6s ease-out;
+}
+
+.timeline-item {
+    animation: fadeIn 0.6s ease-out;
+}
+
+/* 打印樣式 */
+@media print {
+    body {
+        background: white;
+    }
+    
+    .nav {
+        display: none;
+    }
+    
+    .section {
+        box-shadow: none;
+        border: 1px solid #ddd;
+    }
+}

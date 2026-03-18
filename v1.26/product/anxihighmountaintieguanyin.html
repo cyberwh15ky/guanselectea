@@ -1,0 +1,90 @@
+
+<!DOCTYPE html>
+
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8"/>
+<title>安溪・高山茶・鐵觀音 | GuanSelecTea</title>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<style>
+    body { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; margin: 0; background:#fafafa; color:#131D29;}
+    .hero { padding:60px 20px; text-align:center; background:#0f172a; color:#f8fafc;}
+    .hero img { max-width:280px; border-radius:24px; margin-bottom:24px;}
+    .content { max-width:720px; margin:40px auto; padding:0 20px; }
+    h1 { margin-bottom:12px;}
+    p { line-height:1.8;}
+    .back { margin-top:40px; display:inline-block; text-decoration:none; color:#2563eb;}
+  </style>
+
+<style>
+/* v14 tweaks */
+[data-original]{ text-decoration: line-through; }
+
+/* Quantity control: slightly narrower on all screens */
+.qty-controls{ gap: 8px !important; }
+.qty-controls [data-qty-dec], .qty-controls [data-qty-inc]{ width: 32px !important; height: 32px !important; }
+.qty-controls [data-qty]{ width: 52px !important; height: 32px !important; }
+
+@media (max-width: 640px){
+  /* Stack the product row into two layers */
+  table thead{ display:none; }
+  tr[data-product-row]{ display:block; padding: 6px 0; }
+  tr[data-product-row] td{ display:block; width:100%; padding: 10px 0 !important; }
+  tr[data-product-row] td[data-cell="item"]{ padding-bottom: 6px !important; }
+  tr[data-product-row] td[data-label]{ display:flex; align-items:center; justify-content:space-between; gap: 12px; }
+  tr[data-product-row] td[data-label]::before{
+    content: attr(data-label);
+    font-size: 12px;
+    color: #767C83;
+    flex: 0 0 auto;
+  }
+  /* Bigger hit targets on mobile */
+  .qty-controls [data-qty-dec], .qty-controls [data-qty-inc]{ width: 36px !important; height: 36px !important; }
+  .qty-controls [data-qty]{ width: 56px !important; height: 36px !important; }
+
+  /* Fix: prevent qty "+" being squeezed/overlapped; make "加入" full width */
+  tr[data-product-row] td[data-cell="qty"][data-label],
+  tr[data-product-row] td[data-cell="add"][data-label]{
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+  tr[data-product-row] td[data-cell="qty"][data-label]::before,
+  tr[data-product-row] td[data-cell="add"][data-label]::before{
+    margin-bottom: 6px;
+  }
+  tr[data-product-row] td[data-cell="qty"] .qty-controls{
+    width: 100%;
+    justify-content: flex-start;
+  }
+  tr[data-product-row] td[data-cell="add"] button[data-addcart]{
+    width: 100%;
+  }
+}
+</style>
+</head>
+<body>
+<section class="hero">
+<img alt="安溪・高山茶・鐵觀音" src="./bai_rui_xiang.png"/>
+<h1>安溪・高山茶・鐵觀音</h1>
+<p>Anxi High Mountain Tieguanyin</p>
+</section>
+<section class="content">
+<p>
+		安溪・高山茶・鐵觀音 產自福建省安溪縣，是享譽國際的閩南烏龍茶，以「蘭花香」與「觀音韻」著稱。
+		高山地區（如感德、祥華、虎邱）因雲霧繚繞，茶葉生長緩慢，產出的鐵觀音更具幽雅的香氣與厚實的滋味。
+		依發酵與烘焙程度，分為清香型（淡雅）與濃香型（炭焙），特色為條索緊結、色澤烏潤、湯色金黃。 
+			安溪高山鐵觀音的核心特色：
+				產地優勢： 海拔較高，產地集中在安溪的內安溪等地，如感德、祥華等地的高山茶園，常帶有蘭花香。
+				工藝精良： 經過曬青、晾青、搖青、炒青、揉捻、包揉、烘焙等複雜工序，特別是包揉工藝使其顆粒緊結、沉重似鐵。
+				風味特性：
+				清香型： 色澤較綠，香氣高雅，滋味鮮爽。
+				濃香型： 炭火烘焙，湯色深琥珀色，帶有焙火香與果香，滋味醇厚。
+				香氣與滋味： 以「蘭花香」與「觀音韻」為其獨特辨識，耐泡度高。
+				健康價值： 富含抗氧化物質，有助於調節身心，緩解疲勞。 
+		安溪鐵觀音既是茶樹品種名，也是茶葉的名稱，是青茶（烏龍茶）中的代表作。
+    </p>
+<a class="back" href="../index.html">← 返回商品列表</a>
+</section>
+</body>
+</html>

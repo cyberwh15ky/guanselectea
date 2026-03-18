@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="zh-hk" dir="ltr">
+<head>
+<meta charset="utf-8">
+
+<link <link rel="icon" type="image/png" href="../assets/uejI7M_59a061d6d28c87cb.png">
+<link <link rel="apple-touch-icon" href="../assets/uejI7M_59a061d6d28c87cb.png">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#edc472">
+<title>登入 | 觀選茶 GuanSelecTea</title>
+<link href="../assets/main.d84ac40c.css" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css" media="all">
+</head>
+<body>
+<div class="App">
+  <div class="flex flex-col justify-center items-center zoom-block">
+    <div class="flex items-center justify-center relative w-full h-[138px] duration-500" id="color_palette" style="background-color: rgb(237, 196, 114); height: 138px;">      <div class="absolute top-3 left-0 right-0 px-4 flex items-center justify-between z-10">
+        <a id="navInstagram" href="https://www.instagram.com/guanselectea?igsh=OTlqbjQzcm9jcXY0" target="_blank" rel="noopener"
+           class="flex items-center gap-2 px-3 py-2 rounded-full bg-white/25 hover:bg-white/35 backdrop-blur-md">
+          <img src="../assets/icon20.svg" class="w-[18px] h-[18px]" alt="Instagram">
+          <span class="text-sm font-semibold text-[#131D29]">Instagram</span>
+        </a>
+
+        <div class="flex items-center gap-2">
+          <a id="navCart" href="../cart/index.html"
+             class="relative px-3 py-2 rounded-full bg-white/25 hover:bg-white/35 backdrop-blur-md text-sm font-semibold text-[#131D29] flex items-center gap-2">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#131D29" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="8" cy="21" r="1"></circle>
+              <circle cx="19" cy="21" r="1"></circle>
+              <path d="M2.05 2.05h2l2.6 12.45a2 2 0 0 0 2 1.6h9.7a2 2 0 0 0 2-1.6l1.4-7.45H6.1"></path>
+            </svg>
+            <span>購物車</span>
+            <span id="cartCount" class="absolute -top-2 -right-2 min-w-[20px] h-[20px] px-1 rounded-full text-xs flex items-center justify-center text-white"
+                  style="background-color: rgb(126, 192, 159);">0</span>
+          </a>
+
+          <a id="navMember" href="./login.html"
+             class="px-3 py-2 rounded-full bg-white/25 hover:bg-white/35 backdrop-blur-md text-sm font-semibold text-[#131D29]">會員登入</a>
+        </div>
+      </div>
+    </div>
+    <div class="flex flex-col items-center justify-center bg-white relative -mt-[10px] w-full max-w-[700px] px-[16px] rounded-t-[10px] shadow-[1px_6px_30px_rgba(0,31,14,0.05)]">
+      <a href="../index.html" class="mt-[-60px]">
+        <img src="../assets/uejI7M_59a061d6d28c87cb.png" class="w-[120px] border-[14px] mb-0 xs:mb-[15px] bg-white border-white rounded-full" alt="觀選茶 GuanSelecTea" style="margin-top: -60px;">
+      </a>
+      <div class="w-full text-center pb-[10px] xs:pb-[14px] border-b-[1px] border-black/[.05]">
+        <h1 class="text-xl xs:text-2xl mb-[5px] xs:mb-[9px] font-bold text-[#131D29]" style="font-family: &quot;GT Walsheim Pro&quot;;">登入</h1>
+        <p class="text-sm xs:text-base text-[#767C83]" style="font-family: &quot;GT Walsheim Pro&quot;;">會員系統（示範版）</p>
+      </div>
+      <div class="mt-[18px] xs:mt-[25px] mb-[25px] w-full max-w-[520px]">
+        
+<form id="form" class="w-full flex flex-col gap-3">
+  <div class="w-full">
+    <label class="text-sm text-[#131D29] font-semibold">Email</label>
+    <input id="email" type="email" class="w-full mt-1 px-4 py-3 rounded-full border border-black/[.08] outline-none" placeholder="you@example.com" required>
+  </div>
+  <div class="w-full">
+    <label class="text-sm text-[#131D29] font-semibold">Password</label>
+    <input id="password" type="password" class="w-full mt-1 px-4 py-3 rounded-full border border-black/[.08] outline-none" placeholder="至少 6 碼" required>
+  </div>
+  <div id="msg" class="min-h-[20px]"></div>
+  <button class="w-full rounded-full py-3 font-semibold text-white hover:opacity-90" style="background-color: rgb(126, 192, 159);" type="submit">登入</button>
+  <div class="flex justify-between text-sm mt-2">
+    <a class="hover:underline" href="./register.html" style="color: rgb(126, 192, 159);">建立帳號</a>
+    <a class="hover:underline" href="./forgot-password.html" style="color: rgb(126, 192, 159);">忘記密碼</a>
+  </div>
+</form>
+<script>
+(() => {
+  const s = loadSession();
+  if (s?.userId) { location.replace("./dashboard.html"); return; }
+  const form = document.getElementById("form");
+  const msg = document.getElementById("msg");
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const res = await loginUser({ email: email.value, password: password.value });
+    if (!res.ok) { toast(msg, res.error, false); return; }
+    toast(msg, "登入成功，正在前往…", true);
+    setTimeout(()=>location.href="./dashboard.html", 500);
+  });
+})();
+</script>
+
+      </div>
+    </div>
+  </div>
+</div>
+<script src="../assets/auth.js"></script>
+<script src="../assets/cart.js"></script>
+</body>
+</html>
